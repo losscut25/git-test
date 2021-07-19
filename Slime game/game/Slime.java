@@ -15,6 +15,8 @@ public class Slime {
 	
 	public void attack(Human h) {
 		
+		if(hp > 0) {
+		
 		System.out.println(name + "는 " + h.name + "을 공격했습니다");
 		h.hp = h.hp - 10;
 		
@@ -23,5 +25,7 @@ public class Slime {
 			System.exit(0);
 		}
 		System.out.println("현재 " + h.name + "의 체력은" + h.hp + "이다\n");
+		}
 	}
+	
 }

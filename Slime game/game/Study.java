@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 public class Study {
 	public static void main(String[] args) {
 		
+		Slime s = null;
+		
 		Slime s1 = new Slime("슬라삐");
 		Slime s2 = new Slime("슬라돌");
 		Human h = new Human("알렉스");
@@ -23,19 +25,30 @@ public class Study {
 		
 		if(target == 1) {
 			
-			h.attack(s1);
-			
-			s1.attack(h);
+			s = s1;
 	
 		} else if(target == 2) {
-			h.attack(s2);
 			
-			s2.attack(h);
+			s = s2;
 			
 		} else {
 			
 			JOptionPane.showMessageDialog(null, "올바른 숫자를 입력하세요");
 		}
+		if(s.hp <1) {
+			
+			System.out.println(s.name + "는 이미 죽어있다\n");
+		} else {
+			
+			h.attack(s);
+			s.attack(h);
+		
+		}
+		if(s1.hp <1 && s2.hp<1) {
+			JOptionPane.showMessageDialog(null, "Game Clear!");
+			System.exit(0);
+		}
+		
 
 	}
 
